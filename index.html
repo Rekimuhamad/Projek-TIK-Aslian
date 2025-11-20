@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Sawit - Kelompok 9</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="title">Dashboard Produksi Sawit Indonesia</div>
+        <div class="subtitle">Kelompok 9 - Analisis TBS & OER Provinsi Riau</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#about">Tentang Data</a>
+        <a href="#team">Kelompok</a>
+    </nav>
+
+    <section id="dashboard" class="container fade-in">
+        <h2 class="section-title">Dashboard Power BI</h2>
+        <p>Dashboard berikut menampilkan analisis kedatangan TBS dan pengaruhnya terhadap nilai OER, serta ranking produksi kelapa sawit antar provinsi di Indonesia.</p>
+
+        <div class="dashboard-frame">
+            <iframe src="https://app.powerbi.com/view?r=YOUR_EMBED_URL_HERE"></iframe>
+        </div>
+
+        <button class="btn" onclick="refreshDashboard()">Refresh Dashboard</button>
+    </section>
+
+    <section id="about" class="container fade-in">
+        <h2 class="section-title">Informasi Data</h2>
+        <p>Data yang digunakan merupakan data produksi sawit nasional, serta data kedatangan TBS dan perhitungan OER di Provinsi Riau sebagai produsen terbesar di Indonesia. Analisis dilakukan menggunakan Power BI, Power Query, dan DAX.</p>
+    </section>
+
+    <section id="team" class="container fade-in">
+        <h2 class="section-title">Kelompok 9</h2>
+        <div class="team-grid">
+            <div class="card">Reki - F3401241082</div>
+            <div class="card">Syafik - F3401241092</div>
+            <div class="card">Adli - F3401241128</div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Kelompok 9 - Teknologi Informasi dan Komputasi
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
