@@ -1,52 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Sawit - Kelompok 9</title>
+    <title>Palm Oil Command Center - Kelompok 9</title>
+    
     <link rel="stylesheet" href="style.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="title">Dashboard Produksi Sawit Indonesia</div>
-        <div class="subtitle">Kelompok 9 - Analisis TBS & OER Provinsi Riau</div>
-    </header>
 
-    <nav class="navbar">
-        <a href="#dashboard">Dashboard</a>
-        <a href="#about">Tentang Data</a>
-        <a href="#team">Kelompok</a>
+    <div class="bg-layer"></div>
+
+    <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
+        <div class="nav-logo">
+            <div class="logo-icon"><i class="ri-plant-fill"></i></div>
+            <span>Kelompok 9</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero" class="active">Beranda</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#insights">Insights</a>
+            <a href="#team">Kelompok</a>
+        </div>
+        <a href="#dashboard" class="btn-nav">Live Data <i class="ri-pulse-line"></i></a>
     </nav>
 
-    <section id="dashboard" class="container fade-in">
-        <h2 class="section-title">Dashboard Power BI</h2>
-        <p>Dashboard berikut menampilkan analisis kedatangan TBS dan pengaruhnya terhadap nilai OER, serta ranking produksi kelapa sawit antar provinsi di Indonesia.</p>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content" data-aos="zoom-out-up">
+                <div class="badge-tech">
+                    <span class="dot"></span> SYSTEM ONLINE
+                </div>
+                <h1>Analisis Pola Kedatangan TBS <span class="text-gradient">dan Dampaknya terhadap OER</span></h1>
+                <p>Platform analisis big data untuk optimalisasi produksi TBS & OER Provinsi Riau. Mengubah data mentah menjadi keputusan strategis.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="h-val">Top 1</span>
+                        <span class="h-label">Producer (Provinsi Riau)</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="h-val">98%</span>
+                        <span class="h-label">Akurasi Data</span>
+                    </div>
+                </div>
 
-        <div class="dashboard-frame">
-            <iframe src="https://app.powerbi.com/view?r=YOUR_EMBED_URL_HERE"></iframe>
-        </div>
+                <div class="hero-actions">
+                    <a href="#dashboard" class="btn btn-primary">Buka Dashboard <i class="ri-arrow-right-line"></i></a>
+                    <a href="#insights" class="btn btn-secondary"><i class="ri-information-line"></i> Pelajari Analisis</a>
+                </div>
+            </div>
+        </section>
 
-        <button class="btn" onclick="refreshDashboard()">Refresh Dashboard</button>
-    </section>
+        <section id="dashboard" class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="pre-title">REAL-TIME MONITORING</span>
+                <h2 class="section-title">Dashboard Produksi</h2>
+            </div>
 
-    <section id="about" class="container fade-in">
-        <h2 class="section-title">Informasi Data</h2>
-        <p>Data yang digunakan merupakan data produksi sawit nasional, serta data kedatangan TBS dan perhitungan OER di Provinsi Riau sebagai produsen terbesar di Indonesia. Analisis dilakukan menggunakan Power BI, Power Query, dan DAX.</p>
-    </section>
+            <div class="monitor-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="monitor-header">
+                    <div class="dots">
+                        <span class="dot-win red"></span>
+                        <span class="dot-win yellow"></span>
+                        <span class="dot-win green"></span>
+                    </div>
+                    <div class="address-bar">powerbi://analytics/riau-production</div>
+                </div>
+                
+                <div class="dashboard-frame" id="dashboardContainer">
+                    <iframe title="Dashboard Projek TIK Kelompok 9" 
+                            src="https://app.powerbi.com/reportEmbed?reportId=4ca850e5-647d-42ee-8cb4-c6a99975c165&autoAuth=true&ctid=fedd5298-8e66-45f1-b321-fd38ad0ff722" 
+                            frameborder="0" 
+                            allowFullScreen="true">
+                    </iframe>
+                </div>
 
-    <section id="team" class="container fade-in">
-        <h2 class="section-title">Kelompok 9</h2>
-        <div class="team-grid">
-            <div class="card">Reki - F3401241082</div>
-            <div class="card">Syafik - F3401241092</div>
-            <div class="card">Adli - F3401241128</div>
-        </div>
-    </section>
+                <div class="monitor-footer">
+                    <div class="status-indicator">
+                        <span class="led blink"></span> Live Connection
+                    </div>
+                    <div class="controls">
+                        <button onclick="refreshDashboard()"><i class="ri-refresh-line"></i> Refresh</button>
+                        <button onclick="toggleFullScreen()"><i class="ri-fullscreen-line"></i> Fullscreen</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="pre-title">ANALISIS STRATEGIS</span>
+                <h2 class="section-title">Fokus Utama: Provinsi Riau</h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-item main-card" data-aos="fade-right">
+                    <div class="bento-icon"><i class="ri-trophy-fill"></i></div>
+                    <h3>Kenapa Riau?</h3>
+                    <p>Riau merupakan kontributor terbesar produksi sawit nasional, dengan jaringan supplier dan estate paling luas di Indonesia. Skala produksinya yang masif membuat pola kedatangan TBS di Riau menjadi benchmark utama dalam menganalisis performa pabrik dan kualitas OER.
+
+Lonjakan volume, terutama pada Kamis dan Jumat, sering mendorong pabrik mendekati kapasitas maksimal, yang dapat menurunkan kesegaran TBS dan menekan nilai OER. Karena itu, memahami pola operasi di Riau memberikan insight yang sangat penting untuk pengelolaan kapasitas, prediksi produksi, dan strategi peningkatan efisiensi industri sawit secara nasional.</p>
+                    <div class="mini-chart">
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 100%"></div> <div class="bar" style="height: 50%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                    </div>
+                </div>
+
+                <div class="bento-item sub-card" data-aos="fade-left" data-aos-delay="100">
+                    <div class="bento-icon accent"><i class="ri-truck-line"></i></div>
+                    <h4>Pola Logistik</h4>
+                    <p>Puncak kedatangan TBS terjadi di <strong>Kamis-Jumat</strong>. Potensi bottleneck pabrik tinggi.</p>
+                </div>
+
+                <div class="bento-item sub-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bento-icon accent"><i class="ri-drop-line"></i></div>
+                    <h4>Dampak OER</h4>
+                    <p>Penumpukan truk >12 jam menurunkan kualitas buah & rendemen minyak (OER).</p>
+                </div>
+
+                <div class="bento-item img-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="overlay-text">
+                        <h4>Estate Mapping</h4>
+                        <p>Visualisasi Geografis</p>
+                    </div>
+                    <img src="sawitriau.jpg" alt="Peta Sawit" />
+                </div>
+            </div>
+        </section>
+
+        <section id="data-tabel" class="container">
+         <div class="section-header" data-aos="fade-up">
+             <span class="pre-title">DATABASE SNAPSHOT</span>
+             <h2 class="section-title">Rekapitulasi Data Mentah</h2>
+    
+             <div style="margin-top: 15px;">
+                 <a href="dataset-sawit.xlsx" download style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                    <i class="ri-download-cloud-2-line"></i> Unduh Full Data Excel
+                </a>
+             </div>
+         </div>
+
+            <div class="tables-grid">
+                
+                <div class="table-card" data-aos="fade-right">
+                    <div class="table-header">
+                        <i class="ri-map-pin-line icon-table"></i>
+                        <h4>Top Produksi Provinsi</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Peringkat</th>
+                                    <th>Provinsi</th>
+                                    <th>Produksi (Ton)</th>
+                                    <th>Tren</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="rank-badge gold">1</span></td>
+                                    <td>Riau</td>
+                                    <td>9,845,120</td>
+                                    <td><span class="text-up">↗ 2.4%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rank-badge silver">2</span></td>
+                                    <td>Kalimantan Tengah</td>
+                                    <td>7,120,450</td>
+                                    <td><span class="text-up">↗ 1.1%</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rank-badge bronze">3</span></td>
+                                    <td>Sumatera Utara</td>
+                                    <td>5,980,200</td>
+                                    <td><span class="text-down">↘ 0.5%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Sumatera Selatan</td>
+                                    <td>4,210,110</td>
+                                    <td><span class="text-flat">- 0.1%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="table-card" data-aos="fade-left">
+                    <div class="table-header">
+                        <i class="ri-file-list-3-line icon-table"></i>
+                        <h4>Log Harian: TBS vs OER</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>TBS Masuk (Ton)</th>
+                                    <th>OER (%)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01 Okt 2023</td>
+                                    <td>1,250</td>
+                                    <td>21.5%</td>
+                                    <td><span class="status-pill safe">Optimal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>02 Okt 2023</td>
+                                    <td>1,420</td>
+                                    <td>21.2%</td>
+                                    <td><span class="status-pill safe">Optimal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>03 Okt 2023</td>
+                                    <td>1,890</td>
+                                    <td>19.8%</td>
+                                    <td><span class="status-pill danger">Overload</span></td>
+                                </tr>
+                                <tr>
+                                    <td>04 Okt 2023</td>
+                                    <td>1,650</td>
+                                    <td>20.1%</td>
+                                    <td><span class="status-pill warning">Waspada</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="team" class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Anggota Kelompok</h2>
+            </div>
+            <div class="team-wrapper">
+                
+                <div class="member" data-aos="flip-left">
+                    <img src="syafik.jpg" alt="Syafik" class="mem-photo">
+                    <h4>Syafik  F34012241092</h4>
+                    <a href="https://www.instagram.com/zims_ar?igsh=MTVkMGplbXF5dTFoZw==" target="_blank" class="ig-link">
+                        <i class="ri-instagram-line"></i> @zims_ar
+                    </a>
+                </div>
+
+                <div class="member" data-aos="flip-left" data-aos-delay="100">
+                    <img src="reki.jpg" alt="Reki" class="mem-photo">
+                    <h4>Reki  F3401241082</h4>
+                    <a href="https://www.instagram.com/rekimuhamad_?igsh=aWl6cTVxZ3BvZ3F6" target="_blank" class="ig-link">
+                        <i class="ri-instagram-line"></i> @rekimuhamad_
+                    </a>
+                </div>
+
+                <div class="member" data-aos="flip-left" data-aos-delay="200">
+                    <img src="adli.jpg" alt="Adli" class="mem-photo">
+                    <h4>Adli <br> F3401241128</h4>
+                    <a href="https://www.instagram.com/adlirafiansyah?igsh=MTc1NjA3Y3ZkYjZicQ==" target="_blank" class="ig-link">
+                        <i class="ri-instagram-line"></i> @adlirafiansyah
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
 
     <footer>
-        © 2025 Kelompok 9 - Teknologi Informasi dan Komputasi
+        <p>&copy; Projek TIK Kelompok 9</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
